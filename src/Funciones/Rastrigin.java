@@ -1,17 +1,17 @@
-import com.google.common.collect.Range; 
-import java.lang.Math; 
- 
+package Funciones;
+
+import Extras.Vector;
+import com.google.common.collect.Range;
  
 /**
- * Calculates the fitness of Rastrigin's function. 
- */ 
-public class Rastrigin implements FitnessFunction 
-{ 
- /* The bounds of Rastrigin's Function */ 
- private static final Range<Double> BOUNDS = Range.closed(-5.12, 5.12); 
-  
- /* The name of the fitness function */ 
- private static final String NAME = "Rastrigin's Function"; 
+ * Calculates the fitness of Funciones.Rastrigin's function.
+ */
+public class Rastrigin implements Funcion_Rendimiento {
+ /* The bounds of Funciones.Rastrigin's Function */
+ private static final Range<Double> BOUNDS = Range.closed(-5.12, 5.12);
+
+ /* The name of the fitness function */
+ private static final String NAME = "Rastrigin";
   
  /* The number of function calls, includes the sum of all function calls
   * for all instances of the object 
@@ -20,9 +20,9 @@ public class Rastrigin implements FitnessFunction
  
  
  /**
-  * Returns the bounds for Rastrigin's Function, which is, [-5.12, 5.12]. 
-  *  
-  * @return Range The bounds of Rastrigin's Function 
+  * Returns the bounds for Funciones.Rastrigin's Function, which is, [-5.12, 5.12].
+  *
+  * @return Range The bounds of Funciones.Rastrigin's Function
   */ 
  @Override 
  public Range<Double> getBounds() 
@@ -63,16 +63,15 @@ public class Rastrigin implements FitnessFunction
  } 
   
  /**
-  * Evaluates the fitness of Rastrigin's Function benchmark function. 
+  * Evaluates the fitness of Funciones.Rastrigin's Function benchmark function.
   *  
   * @return The fitness value 
   */ 
- @Override 
- public Double evaluate(Vector vector) 
- { 
-  Double fitness = 10.0 * vector.size(); 
-   
-  /* Compute the fitness function for Rastrigin's Function:
+ @Override
+ public Double evaluate(Vector vector) {
+  Double fitness = 10.0 * vector.size();
+
+  /* Compute the fitness function for Funciones.Rastrigin's Function:
    *  
    * f(X) = 10n + sigma (Xi^2 - 10cos(2*pi*Xi)) 
    *  
