@@ -1,23 +1,6 @@
-/**
- * Artificial Intelligence Project -- Differential Evolution 
- *
- * Copyright (C) 2013, Jonathan Gillett, Joseph Heron, and Daniel Smullen 
- * All rights reserved. 
- *
- *
- * This program is free software: you can redistribute it and/or modify 
- * it under the terms of the GNU General Public License as published by 
- * the Free Software Foundation, either version 3 of the License, or 
- * (at your option) any later version. 
- *
- * This program is distributed in the hope that it will be useful, 
- * but WITHOUT ANY WARRANTY; without even the implied warranty of 
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the 
- * GNU General Public License for more details. 
- *
- * You should have received a copy of the GNU General Public License 
- * along with this program.  If not, see <http://www.gnu.org/licenses/>. 
- */
+package Extras;
+
+import Controlador.Variables_de_Control;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartFrame;
 import org.jfree.chart.JFreeChart;
@@ -36,7 +19,7 @@ import java.util.LinkedHashMap;
  * Plots the performance graph of the best fitness value so far versus the 
  * number of function calls. 
  */
-public abstract class PerformanceGraph
+public abstract class Grafica_de_Rendimiento
 {
     /**
      * Plots the performance graph of the best fitness value so far versus the
@@ -50,7 +33,7 @@ public abstract class PerformanceGraph
     public static void plot(LinkedHashMap<Integer, Double> bestFitness, String fitnessFunction)
     {
         /* Create an XYSeries plot */
-        XYSeries series = new XYSeries("Best Fitness Value Vs. Number of Function Calls");
+        XYSeries series = new XYSeries("El Mejor Valor ");
 
         /* Add the NFC and best fitness value data to the series */
         for (Integer NFC : bestFitness.keySet())
@@ -92,7 +75,7 @@ public abstract class PerformanceGraph
 
         /* Set the domain range from 0 to NFC */
         NumberAxis domain = (NumberAxis) plot.getDomainAxis();
-        domain.setRange(0.0, ControlVariables.MAX_FUNCTION_CALLS.doubleValue());
+        domain.setRange(0.0, Variables_de_Control.LLAMADAS_A_FUNCION_GENERACIONES.doubleValue());
 
         /* Logarithmic range axis */
         plot.setRangeAxis(new LogAxis());
@@ -106,7 +89,7 @@ public abstract class PerformanceGraph
 
 
         /* Display the plot in a JFrame */
-        ChartFrame frame = new ChartFrame(fitnessFunction + " Best Fitness Value", chart);
+        ChartFrame frame = new ChartFrame(fitnessFunction + " Valor mas Optimo", chart);
         frame.setVisible(true);
         frame.setSize(1000, 600);
    
